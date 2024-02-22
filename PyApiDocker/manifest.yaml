@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyquote-services
+  labels:
+    app: quote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quote
+  template:
+    metadata:
+      labels:
+        app: quote
+    spec:
+      containers:
+        - name: quote
+          image: yashkr90/pyquote:0.1
+          ports:
+            - containerPort: 80

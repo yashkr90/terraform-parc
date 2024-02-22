@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jsquote-services
+  labels:
+    app: quotejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quotejs
+  template:
+    metadata:
+      labels:
+        app: quotejs
+    spec:
+      containers:
+        - name: quotejs
+          image: yashkr90/jsapp:0.1
+          ports:
+            - containerPort: 3000
